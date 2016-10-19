@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-Title: alex-personal-tools
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.alex.test
+Build-Jdk: 1.7.0_80
+Built-By: alex
+Created-By: Maven Integration for Eclipse
+Implementation-URL: http://projects.spring.io/spring-boot/alex-persona
+ l-tools/
+
