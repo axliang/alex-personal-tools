@@ -142,8 +142,10 @@ public class Datetools {
 		    //	1470862642567  20160810
 		    //  1476379626107  2016-10-14 01:27:06
 		    //  1470863839620  2016-10-14 01:27:06
+		    //  1474243636789  2016-10-14 01:27:06
+		    //  1470862642567
 		    
-			System.out.println(Datetools.FormatString(Long.parseLong("1476764232141")));
+			System.out.println(Datetools.FormatString(Long.parseLong("1470863804212")));
 			
 			
 //			Calendar caldate = Calendar.getInstance();
