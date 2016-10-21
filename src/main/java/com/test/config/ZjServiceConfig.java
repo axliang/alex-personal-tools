@@ -19,19 +19,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 
-
-/**
- * 
- * 
- * 
- * 
- * 
- * 
- */
-
 /**
  * @Type ZjServiceConfig.java
- * @Desc 
+ * @Desc   该种方式为 spring boot 方式配置 配置参数文件
  * @author alex
  * @date 2016年9月19日 下午3:15:27
  * @version 
