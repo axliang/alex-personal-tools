@@ -1,0 +1,214 @@
+1、泛型接口
+1.1泛型接口的基本概念
+
+
+1.2泛型接口实现的两种方式
+定义子类：在子类的定义上也声明泛型类型
+[java] view plain copy
+interface Info<T>{        // 在接口上定义泛型  
+    public T getVar() ; // 定义抽象方法，抽象方法的返回值就是泛型类型  
+}  
+class InfoImpl<T> implements Info<T>{   // 定义泛型接口的子类  
+    private T var ;             // 定义属性  
+    public InfoImpl(T var){     // 通过构造方法设置属性内容  
+        this.setVar(var) ;    
+    }  
+    public void setVar(T var){  
+        this.var = var ;  
+    }  
+    public T getVar(){  
+        return this.var ;  
+    }  
+};  
+public class GenericsDemo24{  
+    public static void main(String arsg[]){  
+        Info<String> i = null;        // 声明接口对象  
+        i = new InfoImpl<String>("李兴华") ; // 通过子类实例化对象  
+        System.out.println("内容：" + i.getVar()) ;  
+    }  
+};  
+如果现在实现接口的子类不想使用泛型声明，则在实现接口的时候直接指定好其具体的操作类型即可：
+[java] view plain copy
+interface Info<T>{        // 在接口上定义泛型  
+    public T getVar() ; // 定义抽象方法，抽象方法的返回值就是泛型类型  
+}  
+class InfoImpl implements Info<String>{   // 定义泛型接口的子类  
+    private String var ;                // 定义属性  
+    public InfoImpl(String var){        // 通过构造方法设置属性内容  
+        this.setVar(var) ;    
+    }  
+    public void setVar(String var){  
+        this.var = var ;  
+    }  
+    public String getVar(){  
+        return this.var ;  
+    }  
+};  
+public class GenericsDemo25{  
+    public static void main(String arsg[]){  
+        Info i = null;      // 声明接口对象  
+        i = new InfoImpl("李兴华") ;   // 通过子类实例化对象  
+        System.out.println("内容：" + i.getVar()) ;  
+    }  
+};  
+
+
+2、泛型方法
+2.1定义泛型方法
+
+[java] view plain copy
+class Demo{  
+    public <T> T fun(T t){            // 可以接收任意类型的数据  
+        return t ;                  // 直接把参数返回  
+    }  
+};  
+public class GenericsDemo26{  
+    public static void main(String args[]){  
+        Demo d = new Demo() ;   // 实例化Demo对象  
+        String str = d.fun("李兴华") ; //  传递字符串  
+        int i = d.fun(30) ;     // 传递数字，自动装箱  
+        System.out.println(str) ;   // 输出内容  
+        System.out.println(i) ;     // 输出内容  
+    }  
+};  
+2.2通过泛型方法返回泛型类的实例
+[java] view plain copy
+class Info<T extends Number>{ // 指定上限，只能是数字类型  
+    private T var ;     // 此类型由外部决定  
+    public T getVar(){  
+        return this.var ;     
+    }  
+    public void setVar(T var){  
+        this.var = var ;  
+    }  
+    public String toString(){       // 覆写Object类中的toString()方法  
+        return this.var.toString() ;      
+    }  
+};  
+public class GenericsDemo27{  
+    public static void main(String args[]){  
+        Info<Integer> i = fun(30) ;  
+        System.out.println(i.getVar()) ;  
+    }  
+    public static <T extends Number> Info<T> fun(T param){  
+        Info<T> temp = new Info<T>() ;      // 根据传入的数据类型实例化Info  
+        temp.setVar(param) ;        // 将传递的内容设置到Info对象的var属性之中  
+        return temp ;   // 返回实例化对象  
+    }  
+};  
+2.3使用泛型统一传入参数的类型
+[java] view plain copy
+class Info<T>{    // 指定上限，只能是数字类型  
+    private T var ;     // 此类型由外部决定  
+    public T getVar(){  
+        return this.var ;     
+    }  
+    public void setVar(T var){  
+        this.var = var ;  
+    }  
+    public String toString(){       // 覆写Object类中的toString()方法  
+        return this.var.toString() ;      
+    }  
+};  
+public class GenericsDemo28{  
+    public static void main(String args[]){  
+        Info<String> i1 = new Info<String>() ;  
+        Info<String> i2 = new Info<String>() ;  
+        i1.setVar("HELLO") ;        // 设置内容  
+        i2.setVar("李兴华") ;      // 设置内容  
+        add(i1,i2) ;  
+    }  
+    public static <T> void add(Info<T> i1,Info<T> i2){  
+        System.out.println(i1.getVar() + " " + i2.getVar()) ;  
+    }  
+};  
+如果add方法中两个泛型的类型不统一，则编译会出错。
+[java] view plain copy
+class Info<T>{    // 指定上限，只能是数字类型  
+    private T var ;     // 此类型由外部决定  
+    public T getVar(){  
+        return this.var ;     
+    }  
+    public void setVar(T var){  
+        this.var = var ;  
+    }  
+    public String toString(){       // 覆写Object类中的toString()方法  
+        return this.var.toString() ;      
+    }  
+};  
+public class GenericsDemo29{  
+    public static void main(String args[]){  
+        Info<Integer> i1 = new Info<Integer>() ;  
+        Info<String> i2 = new Info<String>() ;  
+        i1.setVar(30) ;     // 设置内容  
+        i2.setVar("李兴华") ;      // 设置内容  
+        add(i1,i2) ;  
+    }  
+    public static <T> void add(Info<T> i1,Info<T> i2){  
+        System.out.println(i1.getVar() + " " + i2.getVar()) ;  
+    }  
+};  
+
+3、泛型数组
+[java] view plain copy
+public class GenericsDemo30{  
+    public static void main(String args[]){  
+        Integer i[] = fun1(1,2,3,4,5,6) ;   // 返回泛型数组  
+        fun2(i) ;  
+    }  
+    public static <T> T[] fun1(T...arg){  // 接收可变参数  
+        return arg ;            // 返回泛型数组  
+    }  
+    public static <T> void fun2(T param[]){   // 输出  
+        System.out.print("接收泛型数组：") ;  
+        for(T t:param){  
+            System.out.print(t + "、") ;  
+        }  
+    }  
+};  
+
+4、泛型的嵌套设置
+Demo类中的info属性是Info类的这种属性，Info类本身需要两个泛型。
+[java] view plain copy
+class Info<T,V>{      // 接收两个泛型类型  
+    private T var ;  
+    private V value ;  
+    public Info(T var,V value){  
+        this.setVar(var) ;  
+        this.setValue(value) ;  
+    }  
+    public void setVar(T var){  
+        this.var = var ;  
+    }  
+    public void setValue(V value){  
+        this.value = value ;  
+    }  
+    public T getVar(){  
+        return this.var ;  
+    }  
+    public V getValue(){  
+        return this.value ;  
+    }  
+};  
+class Demo<S>{  
+    private S info ;  
+    public Demo(S info){  
+        this.setInfo(info) ;  
+    }  
+    public void setInfo(S info){  
+        this.info = info ;  
+    }  
+    public S getInfo(){  
+        return this.info ;  
+    }  
+};  
+public class GenericsDemo31{  
+    public static void main(String args[]){  
+        Demo<Info<String,Integer>> d = null ;       // 将Info作为Demo的泛型类型  
+        Info<String,Integer> i = null ;   // Info指定两个泛型类型  
+        i = new Info<String,Integer>("李兴华",30) ;   // 实例化Info对象  
+        d = new Demo<Info<String,Integer>>(i) ; // 在Demo类中设置Info类的对象  
+        System.out.println("内容一：" + d.getInfo().getVar()) ;  
+        System.out.println("内容二：" + d.getInfo().getValue()) ;  
+    }  
+};  

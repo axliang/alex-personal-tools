@@ -131,7 +131,7 @@
 
 
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache.hadoop</groupId>
 			<artifactId>hadoop-common</artifactId>
 			<version>${hadoopVersion}</version>
@@ -216,7 +216,7 @@
 					<artifactId>jetty-util</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency> -->
 
 
 	</dependencies>
