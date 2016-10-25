@@ -68,5 +68,4 @@ public class SystemConfig implements InitializingBean {
  * 
  * Date Author Note
  * -------------------------------------------------------------------------
- * 2016å¹?9æœ?9æ—? Lucifer creat
  */

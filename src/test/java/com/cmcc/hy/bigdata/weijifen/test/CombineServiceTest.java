@@ -30,13 +30,10 @@ import com.alibaba.fastjson.JSONObject;
 
 import tools.RSAUtil;
 
-
 /**
- * @Type CombineServiceTest.java
- * @Desc 
- * @author Lucifer
- * @date 2016骞�9鏈�23鏃� 涓嬪崍1:30:39
- * @version 
+ * 
+ * @author alex
+ *
  */
 public class CombineServiceTest {
 
@@ -73,5 +70,4 @@ public class CombineServiceTest {
  * 
  * Date Author Note
  * -------------------------------------------------------------------------
- * 2016楠烇拷9閺堬拷23閺冿拷 Lucifer creat
  */

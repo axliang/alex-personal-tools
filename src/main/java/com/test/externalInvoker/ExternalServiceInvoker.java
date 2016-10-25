@@ -70,5 +70,4 @@ public class ExternalServiceInvoker {
  * 
  * Date Author Note
  * -------------------------------------------------------------------------
- * 2016å¹?9æœ?8æ—? Lucifer creat
  */
