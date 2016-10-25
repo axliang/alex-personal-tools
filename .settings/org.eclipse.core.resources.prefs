@@ -1,5 +1,8 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/cdt/tools/Datetools.java=UTF-8
+encoding//src/main/java/com/test/mock/TestBaseMock.java=UTF-8
+encoding//src/main/java/com/test/mock/TestUserAreaVerificationMock.java=UTF-8
+encoding//src/main/java/com/test/reflectiondemo/ReflectUtil.java=UTF-8
 encoding//src/main/java/com/tools/TimeUtil.java=UTF-8
 encoding//src/main/java/com/tools/ToolTest.java=UTF-8
 encoding//src/main/java/tools/RSAUtil.java=UTF-8

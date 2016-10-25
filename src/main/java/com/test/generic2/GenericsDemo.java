@@ -25,7 +25,7 @@ class InfoImpl<T> implements Info<T> { // 定义泛型接口的子类
 
 /**
  * @Type GenericsDemo.java
- * @Desc 
+ * @Desc  泛型接口
  * @author alex
  * @date 2016年10月21日 下午4:45:36
  * @version 
